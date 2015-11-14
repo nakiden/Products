@@ -12,12 +12,22 @@ namespace Products.Models
     {
         public int id { get; set; }
         public string title { get; set; }
+        public string brand { get; set; }
         public string barcode { get; set; }
+        public string publisher { get; set; }
         public string storeLocation { get; set; }
         public string storeName { get; set; }
-        public virtual List<Stores> Store { get; set; }
+        public double price { get; set; }
+        public ImageURL [] images { get; set; }
+        //public virtual List<Stores> Store { get; set; }
         ProductContex db = new ProductContex();
         WebSearch webSearch = new WebSearch();
+
+
+        public struct ImageURL
+        {
+            public string url { get; set; }
+        }
 
         public List<Product> GetAll()
         {
@@ -30,9 +40,28 @@ namespace Products.Models
             return GetAll().Where(x => x.id == id).FirstOrDefault();
         }
 
-        public string Get(string barcode)
+        public Product Get(string barcode)
         {
-            return webSearch.SearchByBarcode(barcode, 1);
+            Product returnedProduct = isRecordInDB(barcode);
+
+            if(returnedProduct == null)
+            {
+               returnedProduct = CreateFromAPI(barcode, 1);
+            } 
+            return returnedProduct;
+        }
+
+        public Product isRecordInDB(string barcode)
+        {
+
+            foreach (var pr in db.Product)
+            {
+                if (pr.barcode == barcode)
+                {
+                    return pr;
+                }
+            }
+            return null;
         }
 
         public List<Product> Create(Product product)
@@ -40,6 +69,19 @@ namespace Products.Models
             db.Product.Add(product);
             db.SaveChanges();
             return GetAll();
+        }
+
+        public Product CreateFromAPI(string barcode, int ApiID)
+        {
+            Product pr = new Product();
+            pr = webSearch.SearchByBarcode(barcode, 1);
+
+            if (pr != null) {
+                db.Product.Add(pr);
+                db.SaveChanges();
+                return pr;
+            }
+            return null;
         }
 
         public List<Product> Update(Product product)

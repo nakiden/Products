@@ -20,7 +20,7 @@ namespace Products.Controllers
             return new Product().Get(id);
         }
 
-        public string Get(string barcode)
+        public Product Get(string barcode)
         {
             return new Product().Get(barcode);
         }

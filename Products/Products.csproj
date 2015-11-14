@@ -171,6 +171,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511132117442_InitialCreate.cs" />
+    <Compile Include="Migrations\201511132117442_InitialCreate.Designer.cs">
+      <DependentUpon>201511132117442_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141422082_1.cs" />
+    <Compile Include="Migrations\201511141422082_1.Designer.cs">
+      <DependentUpon>201511141422082_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141527585_2.cs" />
+    <Compile Include="Migrations\201511141527585_2.Designer.cs">
+      <DependentUpon>201511141527585_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141549580_3.cs" />
+    <Compile Include="Migrations\201511141549580_3.Designer.cs">
+      <DependentUpon>201511141549580_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ProductContex.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Stores.cs" />
@@ -206,6 +223,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include=".bin\bower.cmd" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -238,6 +258,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511132117442_InitialCreate.resx">
+      <DependentUpon>201511132117442_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141422082_1.resx">
+      <DependentUpon>201511141422082_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141527585_2.resx">
+      <DependentUpon>201511141527585_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141549580_3.resx">
+      <DependentUpon>201511141549580_3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,17 +6,18 @@ using System.Net;
 using Products.Models;
 using System.IO;
 using System.Web.UI;
+using Newtonsoft.Json;
 
 namespace Products.Models
 {
     public class WebSearch
     {
-        //WebResource resource = new WebResource();
         public List<WebResource> WebApiList = new List<WebResource>() {
             new WebResource { id = 1, domain = "https://www.datakick.org", contentType = "application/json", link = "/api/items/"},
             new WebResource { id = 2, domain = "https://api.outpan.com", contentType = "application/json", link = "/v2/products/", token = "ee8d801d4f3a780c3d55f9e9e2507e7b"}
             // place for another API
         };
+
 
         public string getURL(string barcode, int webApiID)
         {
@@ -33,20 +34,21 @@ namespace Products.Models
             return url;
         }
 
-        public string SearchByBarcode(string barcode, int ApiID)
+        public Product SearchByBarcode(string barcode, int ApiID)
         {
-            string url = getURL(barcode, ApiID), result;
+            string url = getURL(barcode, ApiID);
+            Product returnedProduct = null;
 
             try {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream resStream = response.GetResponseStream();
-                result = StreamToString(resStream);
+                returnedProduct = CovertJSONtoObject(StreamToString(resStream), ApiID);
             } catch (Exception ex) {
-                result = ex.ToString();
+                Console.WriteLine(ex);
             }
 
-            return result;
+            return returnedProduct;
         }
 
         public string StreamToString(Stream stream)
@@ -56,5 +58,25 @@ namespace Products.Models
             reader.Close();
             return responseFromServer;
         }
+
+        public Product CovertJSONtoObject(string jsonString, int webApiID)
+        {
+            Product returnedProduct = null;
+
+            switch (webApiID)
+            {
+                case 1: Datakick_dot_com datakick = JsonConvert.DeserializeObject<Datakick_dot_com>(jsonString);
+                    returnedProduct = datakick.ToProduct();
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+
+            return returnedProduct;
+        }
+
+
     }
 }
