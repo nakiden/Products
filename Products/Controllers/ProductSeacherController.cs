@@ -20,11 +20,6 @@ namespace Products.Controllers
             return new Product().Get(id);
         }
 
-        public Product Get(string barcode)
-        {
-            return new Product().Get(barcode);
-        }
-
         public IEnumerable<Product> Post(Product product)
         {
             return new Product().Create(product);

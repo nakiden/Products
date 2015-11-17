@@ -12,6 +12,6 @@ namespace Products.Models
         public string name { get; set; }
         public string storeLocation { get; set; }
         public string storeName { get; set; }
-        public virtual Stores Store { get; set; }
+        public Stores Store { get; set; }
     }
 }

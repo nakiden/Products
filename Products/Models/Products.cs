@@ -23,7 +23,6 @@ namespace Products.Models
         ProductContex db = new ProductContex();
         WebSearch webSearch = new WebSearch();
 
-
         public struct ImageURL
         {
             public string url { get; set; }
@@ -42,7 +41,7 @@ namespace Products.Models
 
         public Product Get(string barcode)
         {
-            Product returnedProduct = isRecordInDB(barcode);
+            Product returnedProduct = FindRecordInDB(barcode);
 
             if(returnedProduct == null)
             {
@@ -51,7 +50,13 @@ namespace Products.Models
             return returnedProduct;
         }
 
-        public Product isRecordInDB(string barcode)
+        public Product GetByImage(string imagedata)
+        {
+            BarcodeScanner br = new BarcodeScanner();
+            return Get(br.ScanBarcode(imagedata));
+        }
+
+        public Product FindRecordInDB(string barcode)
         {
 
             foreach (var pr in db.Product)
