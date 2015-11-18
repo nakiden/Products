@@ -5,11 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Products.Models;
+using System.Web.Http.Cors;
 
 namespace Products.Controllers
 {
     public class BarcodeController : ApiController
     {
+ 
         public Product Get(string barcode)
         {
             return new Product().Get(barcode);

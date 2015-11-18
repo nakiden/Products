@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Products
 {
@@ -15,7 +16,9 @@ namespace Products
             //Response.AppendHeader("Access-Control-Allow-Origin", "*");
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
-           
+            var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
+            config.EnableCors(cors);
+
             //added starts
             config.Routes.MapHttpRoute(
                 name: "DefaultApiWithExtensions",
