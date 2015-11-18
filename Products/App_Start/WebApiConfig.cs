@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
+using System.Web;
 using System.Web.Http;
 
 namespace Products
@@ -11,7 +12,7 @@ namespace Products
         public static void Register(HttpConfiguration config)
         {
             // Конфигурация и службы веб-API
-
+            //Response.AppendHeader("Access-Control-Allow-Origin", "*");
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
            

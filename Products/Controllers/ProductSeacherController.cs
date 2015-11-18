@@ -20,14 +20,16 @@ namespace Products.Controllers
             return new Product().Get(id);
         }
 
-        public IEnumerable<Product> Post(Product product)
+        public Product Post(Product product)
         {
             return new Product().Create(product);
         }
 
-        public IEnumerable<Product> Put(Product product)
+        public Product Put(Product product)
         {
-            return new Product().Update(product);
+            Stores st = new Stores() { name = product.Store[0].name, latitude = product.Store[0].latitude, longitude = product.Store[0].longitude, storeLocation = product.Store[0].storeLocation };
+
+            return new Product().Update(product,st);
         }
 
         public IEnumerable<Product> Delete(int id)

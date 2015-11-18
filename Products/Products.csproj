@@ -191,6 +191,42 @@
     <Compile Include="Migrations\201511141549580_3.Designer.cs">
       <DependentUpon>201511141549580_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511171532587_StoreAdded.cs" />
+    <Compile Include="Migrations\201511171532587_StoreAdded.Designer.cs">
+      <DependentUpon>201511171532587_StoreAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511171809530_Productsfixed.cs" />
+    <Compile Include="Migrations\201511171809530_Productsfixed.Designer.cs">
+      <DependentUpon>201511171809530_Productsfixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511171823019_Productsfixed2.cs" />
+    <Compile Include="Migrations\201511171823019_Productsfixed2.Designer.cs">
+      <DependentUpon>201511171823019_Productsfixed2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511171845095_Productsfixed3.cs" />
+    <Compile Include="Migrations\201511171845095_Productsfixed3.Designer.cs">
+      <DependentUpon>201511171845095_Productsfixed3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511171854240_Productsfixed4.cs" />
+    <Compile Include="Migrations\201511171854240_Productsfixed4.Designer.cs">
+      <DependentUpon>201511171854240_Productsfixed4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511172144458_Productsfixed5.cs" />
+    <Compile Include="Migrations\201511172144458_Productsfixed5.Designer.cs">
+      <DependentUpon>201511172144458_Productsfixed5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511172149539_Productsfixed6.cs" />
+    <Compile Include="Migrations\201511172149539_Productsfixed6.Designer.cs">
+      <DependentUpon>201511172149539_Productsfixed6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511172211013_Productsfixed8.cs" />
+    <Compile Include="Migrations\201511172211013_Productsfixed8.Designer.cs">
+      <DependentUpon>201511172211013_Productsfixed8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511172219529_Productsfixed-ProductPriceAdded.cs" />
+    <Compile Include="Migrations\201511172219529_Productsfixed-ProductPriceAdded.Designer.cs">
+      <DependentUpon>201511172219529_Productsfixed-ProductPriceAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BarcodeScanner.cs" />
     <Compile Include="Models\ProductContex.cs" />
@@ -276,6 +312,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511141549580_3.resx">
       <DependentUpon>201511141549580_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511171532587_StoreAdded.resx">
+      <DependentUpon>201511171532587_StoreAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511171809530_Productsfixed.resx">
+      <DependentUpon>201511171809530_Productsfixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511171823019_Productsfixed2.resx">
+      <DependentUpon>201511171823019_Productsfixed2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511171845095_Productsfixed3.resx">
+      <DependentUpon>201511171845095_Productsfixed3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511171854240_Productsfixed4.resx">
+      <DependentUpon>201511171854240_Productsfixed4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511172144458_Productsfixed5.resx">
+      <DependentUpon>201511172144458_Productsfixed5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511172149539_Productsfixed6.resx">
+      <DependentUpon>201511172149539_Productsfixed6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511172211013_Productsfixed8.resx">
+      <DependentUpon>201511172211013_Productsfixed8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511172219529_Productsfixed-ProductPriceAdded.resx">
+      <DependentUpon>201511172219529_Productsfixed-ProductPriceAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

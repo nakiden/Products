@@ -35,7 +35,7 @@ namespace Products.Models
 
         public Product ToProduct()
         {
-            return new Product() { barcode = this.gtin14, publisher = this.publisher, title = this.name, brand = this.brand_name, images = this.images };
+            return new Product() { barcode = this.gtin14, publisher = this.publisher, title = this.name, brand = this.brand_name };
         }
     }
 }

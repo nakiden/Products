@@ -15,11 +15,8 @@ namespace Products.Models
         public string brand { get; set; }
         public string barcode { get; set; }
         public string publisher { get; set; }
-        public string storeLocation { get; set; }
-        public string storeName { get; set; }
         public double price { get; set; }
-        public ImageURL [] images { get; set; }
-        //public virtual List<Stores> Store { get; set; }
+        public virtual List<Stores> Store { get; set; }
         ProductContex db = new ProductContex();
         WebSearch webSearch = new WebSearch();
 
@@ -69,11 +66,18 @@ namespace Products.Models
             return null;
         }
 
-        public List<Product> Create(Product product)
+        public Product Create(Product product)
         {
+            Product pr = FindRecordInDB(product.barcode);
+            if (pr == null)
+            {
+                pr = product;
+ 
+            }
+            pr.Store.Add(setStore(product));
             db.Product.Add(product);
             db.SaveChanges();
-            return GetAll();
+            return Get(product.barcode);
         }
 
         public Product CreateFromAPI(string barcode, int ApiID)
@@ -89,13 +93,31 @@ namespace Products.Models
             return null;
         }
 
-        public List<Product> Update(Product product)
+        public Stores setStore(Product product)
+        {
+            return new Stores() { productPrice = product.Store[0].productPrice, name = product.Store[0].name, latitude = product.Store[0].latitude, longitude = product.Store[0].longitude, storeLocation = product.Store[0].storeLocation };
+        }
+
+      /*  public IEnumerable<Stores> getStoresByProductId(int id)
+        {
+            return db.Store.Where(i => i.Product_id == id);
+        }*/
+
+        public Product Update(Product product, Stores store)
         {
             Product p = Get(product.id);
+         //   db.Store.RemoveRange(getStoresByProductId(product.id));
             db.Product.Remove(p);
+            product.Store.Add(store);
             db.Product.Add(product);
-            db.SaveChanges();
-            return GetAll();
+            try {
+                db.SaveChanges();
+            } catch (Exception ex)
+            {
+                string exe = ex.InnerException.ToString();
+                Console.WriteLine(exe);
+            }
+            return Get(product.id);
         }
 
         public List<Product> Delete(int id)

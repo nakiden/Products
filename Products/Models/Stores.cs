@@ -10,8 +10,9 @@ namespace Products.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+        public double productPrice { get; set; }
         public string storeLocation { get; set; }
-        public string storeName { get; set; }
-        public Stores Store { get; set; }
+        public string latitude { get; set; }
+        public string longitude { get; set; }
     }
 }
