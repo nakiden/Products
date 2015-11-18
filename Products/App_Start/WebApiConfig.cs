@@ -16,7 +16,7 @@ namespace Products
             //Response.AppendHeader("Access-Control-Allow-Origin", "*");
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
-            var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
+            var cors = new EnableCorsAttribute("http://myblogblog.esy.es", "*", "*");
             config.EnableCors(cors);
 
             //added starts
