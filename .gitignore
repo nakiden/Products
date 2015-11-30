@@ -24,6 +24,15 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
+.bin
+.bin/
+angular-phonecat/
+angular-phonecat
+*.zip
+*.png
+Project_Readme.html
+Scripts/
+Scripts
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
